@@ -1,36 +1,64 @@
+
+// show catagory button 
 // get data from the api 
-const videoLoad = async (id) => {
+const showCatagoryData = async () => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/videos/categories`);
+    const data = await res.json();
+    const cat = data.data
+    console.log(cat)
+    showCatagory(cat)
+}
+showCatagoryData()
+
+const showCatagory = (cat) => {
+    // get the container 
+    const catCon = document.getElementById('catagory-con');
+    // clear old data 
+    catCon.innerHTML = "";
+
+    // show catagory data 
+    cat.forEach((cat) => {
+        console.log(cat);
+
+        // create element for the card data 
+    const div = document.createElement('div');
+    div.innerHTML = `
+    <a class="tab">${cat.category}</a> 
+    `;
+    catCon.appendChild(div);
+    })
+}
+// get data from the api 
+const videoLoad = async (id = 1000) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
     const data = await res.json();
     videos = data.data
     console.log(videos)
     showVideo(videos)
 }
-videoLoad(1000)
-// show catagory button 
-const showCatagory = () => {
-
-}
-
+videoLoad()
 // show the video in the card 
 const showVideo = (video) => {
-    // get the card container 
-    const cardCon = document.getElementById('card-container');
+        // get the card container 
+        const cardCon = document.getElementById('card-container');
+        // clear old data 
+        cardCon.innerHTML = "";
 
-    // clear old data 
-    cardCon.innerHTML = "";
+        // show card data 
+        video.forEach((video) => {
+            // console.log(video)
 
-    // show card data 
-    video.forEach((video) => {
-        console.log(video)
-        const verifiedImage = video?.authors[0]?.verified === true
-  ? '<img src="../assest/images/fi_10629607.svg" alt="Verified" />'
-  : '';
-        // create element for the card data 
-        const videoCard = document.createElement('div');
-        cardCon.classList = `card card-compact bg-base-100 shadow-xl grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6`;
-        videoCard.innerHTML = `
-        <figure class="h-40">
+            // verifiedImage condition cheack 
+
+            const verifiedImage = video?.authors[0]?.verified === true
+                ? '<img src="../assest/images/fi_10629607.svg" alt="Verified" />'
+                : '';
+            // create element for the card data 
+            const videoCard = document.createElement('div');
+            cardCon.classList = `card card-compact bg-base-100 shadow-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6`;
+
+            videoCard.innerHTML = `
+        <figure class="h-40 w-[100%]">
           <img
             src="${video.thumbnail}"
             alt="Shoes"
@@ -53,10 +81,8 @@ const showVideo = (video) => {
             </div>
         </div>
         `
-        // append the div in the card 
-        cardCon.appendChild(videoCard);
-
-    });
-    
-};
+            // append the div in the card 
+            cardCon.appendChild(videoCard);
+        });
+    };
 
