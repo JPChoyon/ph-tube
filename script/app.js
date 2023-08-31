@@ -1,6 +1,58 @@
-const videoLoad = async()=>{
-    const res = await fetch(`https://openapi.programming-hero.com/api/videos/categories`);
+// get data from the api 
+const videoLoad = async (id) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
     const data = await res.json();
-    console.log(data.data)
+    videos = data.data
+    console.log(videos)
+    showVideo(videos)
 }
-videoLoad()
+videoLoad(1000)
+// show catagory button 
+const showCatagory = () => {
+
+}
+
+// show the video in the card 
+const showVideo = (video) => {
+    // get the card container 
+    const cardCon = document.getElementById('card-container');
+
+    // clear old data 
+    cardCon.innerHTML = "";
+
+    // show card data 
+    video.forEach((video) => {
+        console.log(video)
+        // create element for the card data 
+        const videoCard = document.createElement('div');
+        cardCon.classList = `card card-compact bg-base-100 shadow-xl grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6`;
+        videoCard.innerHTML = `
+        <figure class="h-40">
+          <img
+            src="${video.thumbnail}"
+            alt="Shoes"
+          />
+        </figure>
+        <div class="card-body ">
+            <div class="flex gap-1">
+            <div>
+            <img class="inline-block rounded-full h-9 w-9" src="${video?.authors[0]?.profile_picture}" alt="">
+        </div>
+
+        <div>
+            <h2 class="card-title">${video.title}</h2>
+
+                <p class="text-sm font-medium text-gray-700 group-hover:text-neutral-600">${video?.authors[0]?.profile_name} <span> </span></p>
+            
+        
+            <p>${video?.others?.views} views</p>
+        </div>
+                
+            </div>
+        </div>
+        `
+        // append the div in the card 
+        cardCon.appendChild(videoCard);
+
+    });
+};
