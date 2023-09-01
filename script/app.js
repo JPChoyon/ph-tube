@@ -1,4 +1,3 @@
-
 // show catagory button 
 // get data from the api 
 const showCatagoryData = async () => {
@@ -23,20 +22,20 @@ const showCatagory = (cat) => {
         // create element for the card data 
     const div = document.createElement('div');
     div.innerHTML = `
-    <a class="tab">${cat.category}</a> 
+    <a onclick="handleVideoLoad('${cat.category_id}')" class="tab bg-gray-200 rounded text-black">${cat.category}</a> 
     `;
     catCon.appendChild(div);
     })
-}
+};
 // get data from the api 
-const videoLoad = async (id = 1000) => {
-    const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${id}`);
+const handleVideoLoad = async (cat = 1000) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${cat}`);
     const data = await res.json();
     videos = data.data
     console.log(videos)
     showVideo(videos)
 }
-videoLoad()
+handleVideoLoad()
 // show the video in the card 
 const showVideo = (video) => {
         // get the card container 
