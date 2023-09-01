@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PH Tube</title>
+
+    <!-- google font link  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- daisy ui and tailwind css link  -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- custom css link  -->
+
+    <link rel="stylesheet" href="./style/style.css" class="css" />
+  </head>
+  <body class="container mx-auto">
+    <!-- header section start from here  -->
+    <header>
+      <div class="navbar bg-base-100">
+        <a
+          href="./index.html"
+          class="btn mx-auto btn-ghost normal-case text-3xl font-black"
+          ><img src="./assest/images/Logo.png" alt="" /> Blog</a
+        >
+      </div>
+    </header>
+    <hr />
+
+    <!-- main part start from here -->
+    <main>
+      <section>
+        <h2 class="text-4xl font-black my-6 text-center">
+          Difference between var, let and const keywords in JavaScript
+        </h2>
+        <p class="text-center text-2xl">
+          The var, let, and const is the keyword to declare variables in
+          javascript. <br />
+          <br />
+          In JavaScript, var is function-scoped and hoisted, let is block-scoped
+          and not hoisted, while const is block-scoped and ensures immutability
+          for its assigned value. Use const by default for variables that won't
+          change, let when reassignment is necessary, and avoid var due to its
+          scoping and hoisting issues. <br />
+          <br />
+          In modern JavaScript, it's recommended to use const by default for
+          variable declarations, and only use let when you expect the variable
+          to change its value. var should be avoided due to its scoping and
+          hoisting quirks. Understanding the scope of these keywords is crucial
+          for writing clean and predictable JavaScript code.
+        </p>
+        <h4 class="text-3xl font-bold text-center my-5">More about in Bellow Image</h4>
+        <img class="w-2/4 mx-auto" src="./assest/images/let-var-const-3.png" alt="" />
+      </section>
+      <hr />
+      <!-- end of let const var  -->
+      <!-- start here Tell us the use cases of null and undefined  -->
+      <section>
+        <h2 class="text-4xl font-black my-6 text-center">
+          The use cases of null and undefined
+        </h2>
+        <p class=" text-2xl">
+          Usecase of Null :
+          <ul>
+            <li>Default Value: Variables declared but not assigned a value are automatically initialized with undefined.</li>
+            <li> When you access an object property that doesn't exist.</li>
+            <li>If a function is called without passing an argument for a parameter, that parameter is undefined</li>
+          </ul>
+        </p>
+        <br>
+        <p class=" text-2xl">
+          Usecase of undefined :
+          <ul>
+            <li>It can be assigned to variables or properties to reset them or remove an existing value.</li>
+            <li> In data structures like arrays or databases, null can be used to indicate an empty or non-existent element or record.</li>
+            <li>null is typically used when you want to explicitly indicate that a variable or object property has no assigned value or that it intentionally lacks an object reference.</li>
+          </ul>
+        </p>
+        <h4 class="text-4xl font-black my-6 text-center">
+          What is rest API
+        </h4>
+        <p class="text-2xl">
+          A REST API (Representational State Transfer Application Programming Interface) is a set of rules and conventions for building and interacting with web services over the HTTP protocol. It is an architectural style for designing networked applications, and it relies on a stateless, client-server communication model.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

@@ -22,7 +22,7 @@ const showCatagory = (cat) => {
         // create element for the card data 
     const div = document.createElement('div');
     div.innerHTML = `
-    <a onclick="handleVideoLoad('${cat.category_id}')" class="tab bg-gray-200 rounded text-black">${cat.category}</a> 
+    <a onclick="handleVideoLoad('${cat.category_id}')" class="tab hover:bg-red-400  active:bg-red-400 bg-gray-200 rounded text-black">${cat.category}</a> 
     `;
     catCon.appendChild(div);
     })
